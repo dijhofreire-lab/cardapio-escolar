@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio do Dia | Centro Educa Mais Dom Ungarelli</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="marca">
+      <div class="logo-wrap">
+        <img class="logo-img" src="img/logo-dom-ungarelli.jpeg" alt="Logo do Centro Educa Mais Dom Ungarelli">
+      </div>
+      <div>
+        <h1>Centro Educa Mais Dom Ungarelli</h1>
+        <p>Cardápio do Dia</p>
+      </div>
+    </div>
+    <div class="data" id="dataAtual"></div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="tag">🍽️ ALIMENTAÇÃO ESCOLAR</span>
+        <h2>Refeições do dia</h2>
+        <p>Acompanhe as opções de alimentação e registre a presença dos estudantes.</p>
+      </div>
+      <div class="hero-icon">🥗</div>
+    </section>
+
+    <section class="cards">
+      <article class="card refeicao">
+        <img src="img/cafe-da-manha.png" alt="Café da manhã com café e pão">
+        <div class="card-content">
+          <span class="horario">09:10h</span>
+          <h3>☕ Café da Manhã</h3>
+          <p><strong>Cardápio:</strong> Café com pão</p>
+          <button class="btn-presenca" data-refeicao="cafe">Registrar presença</button>
+        </div>
+      </article>
+
+      <article class="card refeicao">
+        <img src="img/almoco.png" alt="Almoço com arroz, feijão e bife">
+        <div class="card-content">
+          <span class="horario">12:00h</span>
+          <h3>🍛 Almoço</h3>
+          <p><strong>Cardápio:</strong> Arroz, feijão e bife</p>
+          <button class="btn-presenca" data-refeicao="almoco">Registrar presença</button>
+        </div>
+      </article>
+
+      <article class="card refeicao terceira">
+        <img src="img/lanche-da-tarde.png" alt="Lanche da tarde com suco de laranja e bolo">
+        <div class="card-content">
+          <span class="horario">15:00h</span>
+          <h3>🥪 Refeição da Tarde</h3>
+          <p><strong>Cardápio:</strong> Lanche da tarde</p>
+          <button class="btn-presenca" data-refeicao="tarde">Registrar presença</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="presenca card">
+      <div class="section-title">
+        <div>
+          <span class="mini-tag">CONTROLE</span>
+          <h2>Resumo da Presença</h2>
+        </div>
+        <button class="btn-secundario" id="limparPresencas">Limpar registros</button>
+      </div>
+
+      <div class="resumo-grid">
+        <div class="resumo-item">
+          <span>☕ Café da manhã</span>
+          <strong id="totalCafe">0</strong>
+        </div>
+        <div class="resumo-item">
+          <span>🍛 Almoço</span>
+          <strong id="totalAlmoco">0</strong>
+        </div>
+        <div class="resumo-item">
+          <span>🥪 Tarde</span>
+          <strong id="totalTarde">0</strong>
+        </div>
+        <div class="resumo-item destaque">
+          <span>👥 Total geral</span>
+          <strong id="totalGeral">0</strong>
+        </div>
+      </div>
+
+      <div class="barra">
+        <div id="barraProgresso"></div>
+      </div>
+      <p class="status" id="statusPresenca">Nenhuma presença registrada ainda.</p>
+    </section>
+
+    <!-- Área solicitada: fica abaixo do resumo da presença -->
+    <section class="sugestoes card">
+      <div class="section-title">
+        <div>
+          <span class="mini-tag">PARTICIPAÇÃO ESTUDANTIL</span>
+          <h2>💡 Sugestões dos Estudantes</h2>
+          <p>Envie uma sugestão de refeição ou uma ideia para melhorar a alimentação escolar.</p>
+        </div>
+      </div>
+
+      <form id="formSugestao">
+        <div class="form-grid">
+          <label>
+            Nome do estudante
+            <input type="text" id="nome" placeholder="Digite seu nome" required>
+          </label>
+          <label>
+            Turma
+            <input type="text" id="turma" placeholder="Ex.: 201 Informática" required>
+          </label>
+        </div>
+
+        <label>
+          Sugestão
+          <textarea id="sugestao" rows="4" maxlength="300"
+            placeholder="Ex.: Gostaria de ver macarrão, frango assado, frutas..." required></textarea>
+        </label>
+
+        <div class="form-footer">
+          <small id="contador">0/300 caracteres</small>
+          <button class="btn-enviar" type="submit">Enviar sugestão</button>
+        </div>
+      </form>
+
+      <div class="lista-sugestoes" id="listaSugestoes"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Centro Educa Mais Dom Ungarelli • Sistema de Cardápio e Presença</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
